@@ -5,8 +5,7 @@ const { Appointment } = require('../models')
 class AvailableController {
   async index (req, res) {
     const date = moment(parseInt(req.query.date))
-    console.log(date.startOf('day').format())
-    console.log(date.endOf('day').format())
+
     const appointments = await Appointment.findAll({
       where: {
         provider_id: req.params.provider,
